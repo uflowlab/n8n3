@@ -18,7 +18,7 @@ ARG ENCRYPTION_KEY
 
 ENV N8N_ENCRYPTION_KEY=$ENCRYPTION_KEY
 
-RUN echo "const app=require('express')();app.get('/',(_,res)=>res.send('ok'));app.listen(process.env.PORT||8080);" > healthcheck.js
+RUN echo "const app=require('express')();app.get('/healthz',(_,res)=>res.send('ok'));app.listen(process.env.PORT||8080);" > healthcheck.js
 
 CMD sh -c "node healthcheck.js & N8N_PORT=$PORT n8n start"
 
