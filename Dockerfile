@@ -18,4 +18,5 @@ ARG ENCRYPTION_KEY
 
 ENV N8N_ENCRYPTION_KEY=$ENCRYPTION_KEY
 
-CMD ["n8n start"]
+# CMD must use runtime $PORT, not hardcoded
+CMD sh -c 'echo "🚀 Starting on PORT=$PORT" && N8N_PORT=$PORT n8n start'
