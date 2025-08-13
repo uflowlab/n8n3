@@ -1,6 +1,6 @@
 [deploy]
 startCommand = "sh -c 'N8N_PORT=$PORT n8n start'"
-healthcheckPath = "/health"
+healthcheckPath = "/healthz"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 8
